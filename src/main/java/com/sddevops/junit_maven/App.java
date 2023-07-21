@@ -1,4 +1,4 @@
-package com.sddevops;
+package com.sddevops.junit_maven;
 
 /**
  * Hello world!
