@@ -83,6 +83,33 @@ public class SongCollectionTest {
         assertTrue(testSongList.size() > 0);
         assertEquals(testSongList.size(), SONG_COLLECTION_SIZE);
     }
-    
 
+    @Test
+    void testGetSongsWithZeroCapacity(){
+        SongCollection testSongCollection = new SongCollection(0);
+
+        List<Song> testSongList = testSongCollection.getSongs();
+
+        assertTrue(testSongList.size() == 0);
+
+    }
+
+    @Test
+    void testFindSongsById(){
+        Song song = songCollection.findSongsById("001");
+
+        assertNotEquals(song, null);
+    }
+
+    @Test
+    void testFindSongsByIdWithZeroCapacitySongCollection(){
+        SongCollection testSongCollection = new SongCollection(0);
+
+        Song song = testSongCollection.findSongsById("001");
+
+        assertEquals(song, null);
+    }
+
+
+    
 }
