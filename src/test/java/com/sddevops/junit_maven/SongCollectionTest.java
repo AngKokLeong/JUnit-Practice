@@ -2,6 +2,8 @@ package com.sddevops.junit_maven;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
@@ -21,7 +23,7 @@ public class SongCollectionTest {
     @BeforeEach
     void setUp() throws Exception{
 
-        songCollection = new SongCollection(4);
+        songCollection = new SongCollection();
         s1 = new Song("001", "good 4 u", "Olivia Rodrigo", 3.59);
         s2 = new Song("002", "Peaches", "Justin Bieber", 3.18);
         s3 = new Song("003", "MONTERO", "Lil Nas", 2.3);
@@ -46,9 +48,33 @@ public class SongCollectionTest {
         
         songCollection.addSong(testSong);
         
-        assertFalse(songCollection.getSongs().size() == SONG_COLLECTION_SIZE + 1);
+        assertTrue(songCollection.getSongs().size() == SONG_COLLECTION_SIZE + 1);
     }
 
+    @Test 
+    void testAddSongValidateSongCapacity(){
+
+        int CURRENT_SONG_COLLECTION_CAPACITY = 3;
+
+        SongCollection songCollection = new SongCollection(CURRENT_SONG_COLLECTION_CAPACITY);
+
+        Song firstSong = new Song("005", "TEST", "TEST", 9.00);
+        Song secondSong = new Song("006", "TEST", "TEST", 9.00);
+        Song thirdSong = new Song("007", "TEST", "TEST", 9.00);
+
+
+        songCollection.addSong(firstSong);
+        songCollection.addSong(secondSong);
+        songCollection.addSong(thirdSong);
+        
+        assertEquals(songCollection.getSongs().size(), CURRENT_SONG_COLLECTION_CAPACITY);
+
+        Song fourthSong = new Song("008", "TEST", "TEST", 9.00);
+
+        songCollection.addSong(fourthSong);
+        
+        assertNotEquals(songCollection.getSongs().size(), CURRENT_SONG_COLLECTION_CAPACITY + 1);
+    }
 
 
 
