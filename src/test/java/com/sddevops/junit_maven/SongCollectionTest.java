@@ -76,7 +76,13 @@ public class SongCollectionTest {
         assertNotEquals(songCollection.getSongs().size(), CURRENT_SONG_COLLECTION_CAPACITY + 1);
     }
 
+    @Test
+    void testGetSongs(){
+        List<Song> testSongList = songCollection.getSongs();
 
-
+        assertTrue(testSongList.size() > 0);
+        assertEquals(testSongList.size(), SONG_COLLECTION_SIZE);
+    }
+    
 
 }
