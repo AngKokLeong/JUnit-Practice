@@ -124,5 +124,10 @@ public class SongCollectionTest {
         assertEquals(song, null);
     }
 
+    @Test
+    void testFindSongsByTitleWithWrongMatchingTitle(){
+        Song song = songCollection.findSongByTitle("peaches");
 
+        assertEquals(song, null);
+    }
 }
