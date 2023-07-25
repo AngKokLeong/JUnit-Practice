@@ -151,4 +151,22 @@ public class SongCollectionTest {
         assertEquals(songList, testSongList);
     }
 
+    @Test
+    void testSortSongsBySongLength(){
+        List<Song> songList = songCollection.sortSongsBySongLength();
+        List<Song> testSongList = new ArrayList<Song>();
+
+        Song s1 = new Song("001", "good 4 u", "Olivia Rodrigo", 3.59);
+        Song s2 = new Song("002", "Peaches", "Justin Bieber", 3.18);
+        Song s3 = new Song("003", "MONTERO", "Lil Nas", 2.3);
+        Song s4 = new Song("004", "bad guy", "billie eilish", 3.14);
+
+        testSongList.add(s1);
+        testSongList.add(s2);
+        testSongList.add(s4);
+        testSongList.add(s3);
+
+        assertEquals(songList, testSongList);
+    }
+
 }
