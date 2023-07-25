@@ -110,6 +110,12 @@ public class SongCollectionTest {
         assertEquals(song, null);
     }
 
+    @Test
+    void testFindSongsByTitle(){
+        Song song = songCollection.findSongByTitle("Peaches");
 
-    
+        assertNotEquals(song, null);
+    }
+
+
 }
