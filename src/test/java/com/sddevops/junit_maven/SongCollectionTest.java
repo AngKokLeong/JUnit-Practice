@@ -117,5 +117,12 @@ public class SongCollectionTest {
         assertNotEquals(song, null);
     }
 
+    @Test
+    void testFindSongsByTitleWithNullValue(){
+        Song song = songCollection.findSongByTitle(null);
+
+        assertEquals(song, null);
+    }
+
 
 }
