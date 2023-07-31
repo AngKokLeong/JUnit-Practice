@@ -19,6 +19,18 @@
     <junit-jupiter.groupId>org.junit.jupiter</junit-jupiter.groupId>
     <junit-jupiter.artifactId>junit-jupiter</junit-jupiter.artifactId>
     <junit-jupiter.version>5.7.0</junit-jupiter.version>
+
+    <!-- JaCoCo Properties -->
+    <jacoco.groupId>org.jacoco</jacoco.groupId>
+    <jacoco.artifactId>jacoco-maven-plugin</jacoco.artifactId>
+    <jacoco.version>0.87</jacoco.version>
+
+    <!-- SonarQube Properties -->
+    <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+    <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+    <sonar.language>java</sonar.language>
+
+
   </properties>
 
   <dependencies>
@@ -32,7 +44,6 @@
   </dependencies>
 
   <build>
-    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
         <plugin>
@@ -85,14 +96,14 @@
             </execution>
             <execution>
               <id>report</id>
-              <phase>prepare-package</phase>
-              <goals>
+              <phase>verify</phase>
+              <goals> 
                 <goal>report</goal>
               </goals>
             </execution>
           </executions>
         </plugin>
       </plugins>
-    </pluginManagement>
+
   </build>
 </project>
